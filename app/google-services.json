@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "337112346121",
+    "project_id": "kuzinna-8c7cc",
+    "storage_bucket": "kuzinna-8c7cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337112346121:android:c45ab26031868d945e12d8",
+        "android_client_info": {
+          "package_name": "com.example.appcocina3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337112346121-7r4emb6k0q288o4cm7beg0ri030uu08d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIO3gCFXEWN9qYxRNHPJDBBbCx2LTraGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "337112346121-7r4emb6k0q288o4cm7beg0ri030uu08d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
