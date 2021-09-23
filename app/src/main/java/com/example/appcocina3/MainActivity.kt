@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+
 var login :Boolean = false
 var usuarios : ArrayList<Usuario> = ArrayList<Usuario>()
 class MainActivity : AppCompatActivity() , View.OnClickListener {
@@ -36,7 +38,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
                 if (pass1.text == pass2.text){
                     Toast.makeText(getApplicationContext(),"Compruebe si su contraseña esta correcta", Toast.LENGTH_SHORT).show()
                 }
-                //FirebaseAuth
+                FirebaseAuth
             }
             else{}
         }
