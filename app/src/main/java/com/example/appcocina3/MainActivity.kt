@@ -1,5 +1,6 @@
 package com.example.appcocina3
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         }
         else {
             setContentView(R.layout.login)
+
             //var btnRegister = findViewById<Button>(R.id.button_register)
             //btnRegister!!.setOnClickListener(this)
 
@@ -27,21 +29,32 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     }
     private fun setup(){
         var btnRegister = findViewById<Button>(R.id.button_crearCuenta)
+
         var email = findViewById<EditText>(R.id.edt_email)
         var usuario = findViewById<EditText>(R.id.edt_usuario)
-        var pass1 = findViewById<EditText>(R.id.edt_pass)
+        var pass1 = findViewById<EditText>(R.id.edt_pass1)
         var pass2 = findViewById<EditText>(R.id.edt_pass2)
         title = "Autenticacion"
 
         btnRegister.setOnClickListener{
             if(email.text.isNotEmpty() && usuario.text.isNotEmpty() && pass1.text.isNotEmpty() && pass2.text.isNotEmpty()){
-                if (pass1.text == pass2.text){
+                if (pass1.text.toString() != pass2.text.toString()){
                     Toast.makeText(getApplicationContext(),"Compruebe si su contraseña esta correcta", Toast.LENGTH_SHORT).show()
-                }
-                FirebaseAuth
+                } else{
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email.text.toString(),pass1.text.toString()).addOnCompleteListener{
+                    if(it.isSuccessful){
+                        showHome(it.result?.user?.email ?:"",ProviderType.BASIC)
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Se ha producido un Error de Autentificacion, Comprueba tus datos", Toast.LENGTH_SHORT).show()
+                    }
+                }}
             }
-            else{}
+            else{
+                Toast.makeText(getApplicationContext(),"Se ha producido un Error , Por favor comprueba tus datos", Toast.LENGTH_SHORT).show()
+            }
         }
+
+
 
 
 
@@ -53,15 +66,40 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     // Funciones Login
     override fun onClick(p0: View?) {
         setContentView(R.layout.register)
+        setup()
     }
 
     fun botonLogin(p0: View?){
-        var usuario = findViewById<EditText>(R.id.edt_usuario)
-        var contraseña = findViewById<EditText>(R.id.edt_pass)
-        //if(Usuario.comprobarUsuario(usuario.text, contraseña.text))
-            
+        var btnLogin = findViewById<Button>(R.id.button_Login)
+        var email = findViewById<EditText>(R.id.edt_usuario_ing)
+        var pass = findViewById<EditText>(R.id.edt_pass_ing)
 
-        setContentView(R.layout.activity_main)
+
+        title = "Ingresar"
+
+
+        btnLogin.setOnClickListener{
+            if(email.text.isNotEmpty() &&  pass.text.isNotEmpty()){
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(email.text.toString(),pass.text.toString()).addOnCompleteListener{
+                    if(it.isSuccessful){
+                        showHome(it.result?.user?.email ?:"",ProviderType.BASIC)
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Se ha producido un Error de Autentificacion, Comprueba tus datos", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"Se ha producido un Error , Por favor comprueba tus datos", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
+    //Instanciar el MainHub
+    private fun showHome(email: String, provider: ProviderType){
+        val homeIntent = Intent(this, MainHub::class.java).apply {
+            putExtra("email",email)
+            putExtra("provider",provider.name)
+        }
+        startActivity(homeIntent)
+    }
 }

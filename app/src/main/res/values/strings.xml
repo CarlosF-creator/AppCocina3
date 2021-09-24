@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Kuzzina</string>
+    <string name="register_crearCuenta">Crear Cuenta</string>
 </resources>
