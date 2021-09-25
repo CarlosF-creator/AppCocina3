@@ -34,6 +34,17 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/foto"
+                android:text="Cocina con tus Ingredientes"
+
+                android:textAllCaps="false"
+                android:textSize="34sp" />
+
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
@@ -42,13 +53,6 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/recetas_con_papa" />
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_weight="1"
-                android:layout_marginTop="20dp"
-                app:srcCompat="@drawable/foto_mainhub_ingredientes" />
         </LinearLayout>
     </ScrollView>
 

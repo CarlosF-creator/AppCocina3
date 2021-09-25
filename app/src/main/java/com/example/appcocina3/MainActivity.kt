@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         var usuario = findViewById<EditText>(R.id.edt_usuario)
         var pass1 = findViewById<EditText>(R.id.edt_pass1)
         var pass2 = findViewById<EditText>(R.id.edt_pass2)
+        var principiante = findViewById<Switch>(R.id.switch_principiante)
         title = "Autenticacion"
 
         btnRegister.setOnClickListener{
@@ -53,14 +55,6 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
                 Toast.makeText(getApplicationContext(),"Se ha producido un Error , Por favor comprueba tus datos", Toast.LENGTH_SHORT).show()
             }
         }
-
-
-
-
-
-
-
-
     }
 
     // Funciones Login
