@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF6822"
+    android:background="@drawable/posiblefondo"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="294dp"
-        android:layout_height="144dp"
+        android:layout_width="419dp"
+        android:layout_height="179dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -21,10 +21,12 @@
         app:srcCompat="@drawable/logo" />
 
     <ScrollView
-        android:layout_width="320dp"
-        android:layout_height="0dp"
+        android:layout_width="325dp"
+        android:layout_height="442dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
@@ -35,23 +37,26 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttoningredientes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:layout_weight="1"
-                android:background="@drawable/foto"
+                android:background="@drawable/btningredientes2"
                 android:text="Cocina con tus Ingredientes"
-
                 android:textAllCaps="false"
                 android:textSize="34sp" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <Button
+                android:id="@+id/buttonrecetas"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/recetas_con_papa" />
+                android:background="@drawable/btnrecetas"
+                android:text="Mira todas las Recetas"
+                android:textAllCaps="false"
+                android:textSize="34sp" />
 
         </LinearLayout>
     </ScrollView>
